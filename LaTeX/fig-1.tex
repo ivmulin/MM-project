@@ -1,0 +1,61 @@
+\begin{tikzpicture}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{angles}
+
+\newcommand{\Arrow}{\draw[arrows = {-Latex[width=0pt 10, length=10pt]}]}
+
+\coordinate (A) at (0, 0);
+\coordinate (B) at (1.955225221238, 2.2753229076847);
+\coordinate (C) at (2.2088179488322, 0.2808455954717);
+\coordinate (D) at (4.3535998953354,-1.0024816567962);
+\coordinate (E) at (4.8279619453941, 0.6138631063668);
+\coordinate (F) at (1.3592290073401, -0.3129828601622);
+
+\coordinate (G1) at (4.2481861064334, -0.0361885918618);
+\coordinate (G) at (4.6724857654906, -0.0892260492439);
+\coordinate (G2) at (4.950944699113, -0.1240334159467);
+
+\draw[dashed] (0, 0) circle (3);
+
+\Arrow (A) -- (B) node[pos=0.5, above left] {$\mathbf{p}$};
+
+\Arrow (A) -- (E) node[above left] {$\mathbf{v}(b_2)$};
+\Arrow (A) -- (D) node[below right] {$\mathbf{v}(b_2 - \varepsilon)$};
+
+\Arrow (C) -- (B) node[pos=0.5, right] {$\mathbf{s}$};
+\Arrow (F) -- (B) node[pos=0.5, left] {$\mathbf{s}_\varepsilon$};
+
+\draw[dotted] (D) .. controls (G1) .. (G) .. controls (G2) .. (E);
+
+\pic[
+	draw,
+	color=pinky,
+	fill=pinky,
+	fill opacity=0.2,
+	angle radius=0.4cm,
+	double,
+] {angle = C--A--B};
+\pic[
+	draw,
+	color=oranguice,
+	fill=oranguice,
+	fill opacity=0.2,
+	angle radius=0.3cm,
+] {right angle = B--C--A};
+
+\pic[
+	draw,
+	color=bluberry,
+	fill=bluberry,
+	fill opacity=0.2,
+	angle radius=0.3cm,
+] {angle = F--A--B};
+\pic[
+	draw,
+	color=oranguice,
+	fill=oranguice,
+	fill opacity=0.2,
+	angle radius=0.3cm,
+] {right angle = B--F--A};
+\end{tikzpicture}
+
