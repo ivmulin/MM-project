@@ -26,15 +26,29 @@
 \usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage[hidelinks]{hyperref}
+\usepackage{pgfplots}
+\usepackage[outline]{contour}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{suffix}
+%\usepackage{showframe}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
-%\usepackage{cantarell}
 \usepackage{hyphenat}
 \usepackage[russian]{babel}
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+
+% pgfplots settings
+\pgfplotsset{width=10cm,compat=1.18}
+\usepgfplotslibrary{fillbetween}
+\contourlength{0.2em}
+% caching pgfplots
+%\usepgfplotslibrary{external}
+%\tikzexternalize
 
 \input{hyphenation-ru}
 
@@ -56,6 +70,38 @@
 \renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
 \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
 
-\DeclareMathOperator{\sign}{sgn}
-\newcommand{\Task}[1]{{\fontfamily{cmss}\selectfont Задача #1.}}
-\newcommand{\Sln}{{\fontfamily{cmss}\selectfont Решение.}}
+\allowdisplaybreaks % automatically wrap lines in math mode
+
+% colors
+\definecolor{pinky}{RGB}{222, 82, 173}
+\definecolor{oranguice}{RGB}{227, 140, 86}
+\definecolor{bluberry}{RGB}{86, 102, 227}
+\definecolor{birchtree}{RGB}{89, 227, 169}
+
+\DeclareMathOperator{\sign}{sgn} % signum - sgn
+\newcommand{\Task}[1]{
+	\subsection*{\fontfamily{cmss}\selectfont Задача #1.}
+	\addcontentsline{toc}{subsection}{Задача #1}
+} % task label
+\newcommand{\Sln}[1]{
+	\subsection*{\fontfamily{cmss}\selectfont Решение.}
+	\addcontentsline{toc}{subsection}{Решение задачи #1}
+} % solution label
+\newcommand{\ScalarProduct}[2]{\langle #1, #2 \rangle} % scalar product
+\newcommand{\BigScalarProduct}[2]{\Big \langle #1, #2 \Big \rangle} % scalar product
+\newcommand{\Vect}[1]{\mathbf{#1}} % geometric vector
+\newcommand{\Fourier}[1]{\mathcal{F} [#1]} % Fourier transform
+\newcommand{\bigFourier}[1]{\mathcal{F} \big[ #1 \big]} % Fourier transform for big expressions
+\newcommand{\BigFourier}[1]{\mathcal{F} \Big[ #1 \Big]} % Fourier transform for Big expressions
+\WithSuffix\newcommand \Fourier*[1]{\mathcal{F}^{-1} [#1]} % inverse Fourier transform
+\WithSuffix\newcommand \bigFourier*[1]{\mathcal{F}^{-1} \big[ #1 \big]} % Fourier transform for big expressions
+\WithSuffix\newcommand \BigFourier*[1]{\mathcal{F}^{-1} \Big[ #1 \Big]} % Fourier transform for Big expressions
+\newcommand{\N}{\mathbb{N}} % Natural numbers - N
+\newcommand{\Z}{\mathbb{Z}} % Integer numbers - Z
+\newcommand{\Q}{\mathbb{Q}} % Rational numbers - Q
+\newcommand{\R}{\mathbb{R}} % Real numbers - R
+\newcommand{\Cpx}{\mathbb{C}} % Complex numbers
+\newcommand{\e}{\mathrm{e}} % Euler's constant - e
+\renewcommand{\d}{\mathrm{d}} % differential - d
+\newcommand{\vp}{\operatorname{v. p.}} % principal value - v. p
+\newcommand{\erf}{\operatorname{erf}} % error function - erf
