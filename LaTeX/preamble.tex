@@ -27,12 +27,9 @@
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
 \usepackage[hidelinks]{hyperref}
-\usepackage{pgfplots}
-\usepackage[outline]{contour}
-\usepackage{wrapfig}
-\usepackage{xcolor}
-\usepackage{suffix}
-%\usepackage{showframe}
+\usepackage{wrapfig} 
+\usepackage{suffix} % allows defining commands with *
+%\usepackage{showframe} % shows bounding boxes
 
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
@@ -41,14 +38,6 @@
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-
-% pgfplots settings
-\pgfplotsset{width=10cm,compat=1.18}
-\usepgfplotslibrary{fillbetween}
-\contourlength{0.2em}
-% caching pgfplots
-%\usepgfplotslibrary{external}
-%\tikzexternalize
 
 \input{hyphenation-ru}
 
@@ -71,12 +60,6 @@
 \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
 
 \allowdisplaybreaks % automatically wrap lines in math mode
-
-% colors
-\definecolor{pinky}{RGB}{222, 82, 173}
-\definecolor{oranguice}{RGB}{227, 140, 86}
-\definecolor{bluberry}{RGB}{86, 102, 227}
-\definecolor{birchtree}{RGB}{89, 227, 169}
 
 \DeclareMathOperator{\sign}{sgn} % signum - sgn
 \newcommand{\Task}[1]{

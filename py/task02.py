@@ -115,7 +115,7 @@ def show_data(data):
 
 FILENAME = "task2_data"
 SEP = "/"
-data_location = path.dirname(__file__).replace("py", "aux")
+data_location = path.dirname(__file__).replace("py", "data")
 DATAFILE_PATH = SEP.join([data_location, FILENAME])
 
 # чтение файла
