@@ -1,4 +1,8 @@
 *.log
-*.gz
+*.synctex.gz
 *.bash
 *.aux
+*.auxlock
+*.out
+*.toc
+.aux/

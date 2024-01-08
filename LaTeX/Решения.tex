@@ -2,6 +2,7 @@
 
 
 \title{Групповой проект по математическому моделированию}
+\author{}
 \date{}
 
 \begin{document}
@@ -27,7 +28,7 @@
 \end{split}
 \end{equation}
 
-Величины $\sigma, \rho$ и $r$ размерно независимы. Действительно, равенство $\rho ^\alpha \sigma ^\beta r^\gamma =1$ выполняется только при $\alpha = \beta = \gamma = 0$. Значит, для некоторых $p_\rho, p_\sigma, p_r$ и $c_0$ применение $\Pi$-теоремы даёт тождество
+Величины $\sigma, \rho$ и $r$ размерно независимы. Действительно, равенство $\sigma ^\alpha \rho ^\beta r^\gamma =1$ выполняется только при $\alpha = \beta = \gamma = 0$. Значит, для некоторых $p_\sigma, p_\rho, p_r$ и $c_0$ применение $\Pi$-теоремы даёт тождество
 
 \begin{equation} \label{eq:eq2}
 \dfrac{P}{\sigma ^{p_\sigma} \rho ^{p_\rho} r^{p_r}} = c_0 
@@ -112,12 +113,12 @@ P(V) \approx 408135.750 \ln V.
 --- перпендикуляр к $\Vect{v}$ (рис. \ref{fig:fig-1}).
 
 \begin{figure}[h]
-\vspace{5pt}
+%\vspace{5pt}
 \centering
-\input{fig-1}
+\includegraphics[page=1]{figures.pdf}
 \caption{Векторы $\Vect{v}(b_2)$ и $\Vect{s}=\Vect{s}(b_2)$ меняются  с изменением $b_2$.}
 \label{fig:fig-1}
-\vspace{5pt}
+%\vspace{5pt}
 \end{figure}
 
 Для того чтобы минимизировать значение $\ScalarProduct{\Vect{p}}{\Vect{s}}$, требуется увеличить угол $\angle (\Vect{p}, \Vect{s})$ и уменьшить $\lVert \Vect{s}\rVert$, а для этого (см. рис. \ref{fig:fig-1}) необходимо и достаточно уменьшить
@@ -130,7 +131,7 @@ P(V) \approx 408135.750 \ln V.
 \]
 
 В ходе численного решения были последовательно найдены числа
-\[ b_{2 \min} \approx 6.888\ldots, a_{2 \min} \approx  6.651\ldots, \min \Delta _2 \approx 424800366918.064\ldots\]
+\[ b_{2 \min} \approx 6.888\ldots, a_{2 \min} \approx  6.651\ldots, \min \Delta _2 \approx 424800366918.064\ldots \]
 и
 \[ \chi _2^2 = \sum \limits _{i=1}^6 \dfrac{(P_i - a_{2 \min} V_i^{b_{2 \min}})^2}{P(V_i)} \approx 703550.381\ldots \]
 
@@ -147,12 +148,12 @@ P(V) \approx 6.651 V^{6.888}.
 Найденные зависимости изображены на рисунке \ref{fig:fig-2}:
 
 \begin{figure}[h]
-\vspace{5pt}
+%\vspace{5pt}
 \centering
-\input{fig-2}
+\includegraphics[page=2]{figures.pdf}
 \caption{Сравнение полученных моделей}
 \label{fig:fig-2}
-\vspace{5pt}
+%\vspace{5pt}
 \end{figure}
 
 \Task{3} Изучается распределение температуры $u=u(x, t)$ в тонком бесконечном металлическом стержне, боковая поверхность которого теплоизолирована. Внутри стержня нет источника тепла. Коэффициент температуропроводности стержня $\alpha^2 = \frac{1}{20}$. Начальное распределение температуры в стержне имеет вид
@@ -192,7 +193,6 @@ u(x, 0) = \varphi (x).
 \begin{split}
 & \BigFourier{ \dfrac{\partial u}{\partial t} }(y, t) = \dfrac{\partial}{\partial t} \Fourier{u}(y, t) = \dfrac{\d U}{\d t} = \dot{U},\\
 & \BigFourier{ \dfrac{\partial ^k u}{\partial x^k} }(y, t)  = (iy)^k \Fourier{u}(y, t) = (iy)^k U,\\
-%\displaybreak
 & \Fourier{\mu f + \nu g} = \mu \Fourier{f} + \nu \Fourier{g},
 \end{split}
 \]
@@ -219,7 +219,7 @@ u(x, t) & = \Fourier*{U_y} = \Fourier*{\Phi (y) \e ^{-\alpha ^2 y^2 t}} =\\
 \[
 \begin{split}
 & \Fourier*{f \cdot g} = \Fourier*{f} * \Fourier*{g},\\
-& \bigFourier*{\e ^{-\nu ^2 y^2}} = \dfrac{\e ^ {-\frac{x^2}{\nu ^2}}}{\sqrt{2} \nu}.\\
+& \bigFourier*{\e ^{-\nu ^2 y^2}} = \dfrac{\e ^ {-\frac{x^2}{4\nu ^2}}}{\sqrt{2} \nu}.\\
 \end{split}
 \]
 
@@ -243,14 +243,27 @@ u(x, t) & = \Fourier*{U_y} = \Fourier*{\Phi (y) \e ^{-\alpha ^2 y^2 t}} =\\
 
 
 Итак, окончательно
+\begin{align*}
+u(x, t) = \dfrac{1-x}{2} \bigg[ \erf \bigg( \dfrac{x}{2\alpha \sqrt{t}} \bigg) & - \erf \bigg( \dfrac{x-1}{2\alpha \sqrt{t}} \bigg) \bigg] -\\
+& - \alpha \sqrt{ \dfrac{t}{\pi} } \bigg[ \exp \bigg( -\dfrac{x^2}{4\alpha ^2 t} \bigg) - \exp \bigg( -\dfrac{(x-1)^2}{4\alpha ^2 t} \bigg)  \bigg].
+\end{align*}
+
+Как видно, полученная функция не определена при $t=0$. Однако изначально она удовлетворяла тождеству $u(x, t) = \Fourier*{\Phi (y) \e ^{-\alpha ^2 y^2 t}}$, поэтому $u(x, 0) = \Fourier*{\Phi (y)} = \varphi (x)$. Вспоминая, что $\alpha ^2 = \frac{1}{20}$, запишем ответ:
 \[
-u(x, t) = \dfrac{1-x}{2} \bigg[ \erf \bigg( \dfrac{x}{2\alpha \sqrt{t}} \bigg) - \erf \bigg( \dfrac{x-1}{2\alpha \sqrt{t}} \bigg) \bigg] -
-\alpha \sqrt{ \dfrac{t}{\pi} } \bigg[ \exp \bigg( -\dfrac{x^2}{4\alpha ^2 t} \bigg) - \exp \bigg( -\dfrac{(x-1)^2}{4\alpha ^2 t} \bigg)  \bigg].
+u(x, t) =
+\begin{cases}
+
+\begin{split}
+\dfrac{1-x}{2} \bigg[ \erf & \bigg( \sqrt{ \dfrac{5}{t} } x \bigg) - \erf \bigg( \sqrt{ \dfrac{5}{t} }(x-1) \bigg) \bigg] -\\
+& - \sqrt{ \dfrac{t}{20\pi} } \bigg[ \exp \bigg( -\dfrac{5x^2}{t} \bigg) - \exp \bigg( -\dfrac{5(x-1)^2}{t} \bigg)  \bigg]\ \text{при}\ t > 0,
+\end{split}
+\\
+\varphi (x)\ \text{при}\ t = 0.
+
+\end{cases}
 \]
 
-\Task{4} Максимизируйте целевую функцию
-\[ g(x, y)=2x-y \]
-при следующих условиях:
+\Task{4} Максимизируйте целевую функцию $g(x, y)=2x-y$ при следующих условиях:
 \begin{equation} \label{eq:eq7}\tag{M}
 \begin{cases}
 x \le 3,\\
@@ -262,7 +275,7 @@ y \ge -1,\\
 
 \begin{wrapfigure}{o}{0.6\textwidth}
 \centering
-\input{fig-3}
+\includegraphics[page=3]{figures.pdf}
 \caption{Графическое решение задачи}
 \label{fig:fig-3}
 \end{wrapfigure}
@@ -273,16 +286,6 @@ y \ge -1,\\
 \[
 \max_{(x, y) \in M}(2x-y) = 7.
 \]
-
-%\newpage
-
-%\begin{figure}[h!]
-%\centering
-%\input{fig-3}
-%\caption{Графическое решение задачи}
-%\label{fig:fig-3}
-%\end{figure}
-
 
 
 \end{document}
