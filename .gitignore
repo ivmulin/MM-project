@@ -6,3 +6,4 @@
 *.out
 *.toc
 .aux/
+__pycache__/
