@@ -23,7 +23,7 @@
 \begin{split}
 [P] & = T,\\
 [\sigma] & = MT^{-2},\\
-[\rho] & = ML^{-3},\\
+[\rho] & = L^{-3}M,\\
 [r] & = L.
 \end{split}
 \end{equation}
@@ -69,12 +69,12 @@ $P$ & 341948 & 49375 & 260200 & 867023 & 1340000 & 1092759\\
 & = \dfrac{\ScalarProduct{\Vect{p}}{\Vect{p}}\ScalarProduct{\Vect{l}}{\Vect{l}} - \ScalarProduct{\Vect{p}}{\Vect{l}}^2}{\ScalarProduct{\Vect{l}}{\Vect{l}}} = \min \Delta _1,
 \end{align*}
 причём наименьшее значение достигается при $a_{1\min}=\ScalarProduct{\Vect{p}}{\Vect{l}} / \ScalarProduct{\Vect{l}}{\Vect{l}}$.\par
-В нашем случае $a_{1\min} \approx 408135.750\ldots, \min \Delta _1 \approx 1186996197086.548\ldots$ и 
-\[ \chi _1^2 = \sum \limits _{i=1}^6 \dfrac{(P_i - a_{1 \min} \ln V_i)^2}{P(V_i)} \approx 1753774.374\ldots \]
+В нашем случае $a_{1\min} \approx 408135.7504\ldots, \min \Delta _1 \approx 1186996197086.5476\ldots$ и 
+\[ \chi _1^2 = \sum \limits _{i=1}^6 \dfrac{(P_i - a_{1 \min} \ln V_i)^2}{P(V_i)} \approx 1753774.3745\ldots \]
 
 Итак, мы получили зависимость 
 \begin{equation} \label{eq:eq3}
-P(V) \approx 408135.750 \ln V.
+P(V) \approx 408135.7504 \ln V.
 \end{equation}
 
 Займёмся теперь подгонкой данных к модели $P(V)=a_2 V ^{b_2}$. На этот раз требуется оптимизировать величину
@@ -132,21 +132,18 @@ P(V) \approx 408135.750 \ln V.
 \]
 
 В ходе численного решения были последовательно найдены числа
-\[ b_{2 \min} \approx 6.888\ldots, a_{2 \min} \approx  6.651\ldots, \min \Delta _2 \approx 424800366918.064\ldots \]
+\[ b_{2 \min} \approx 6.8884\ldots, a_{2 \min} \approx  6.6507\ldots, \min \Delta _2 \approx 424800366918.0637\ldots \]
 и
-\[ \chi _2^2 = \sum \limits _{i=1}^6 \dfrac{(P_i - a_{2 \min} V_i^{b_{2 \min}})^2}{P(V_i)} \approx 703550.381\ldots \]
+\[ \chi _2^2 = \sum \limits _{i=1}^6 \dfrac{(P_i - a_{2 \min} V_i^{b_{2 \min}})^2}{P(V_i)} \approx 703550.3811\ldots \]
 
 Значит, искомая зависимость имеет вид
 \begin{equation} \label{eq:eq4}
-P(V) \approx 6.651 V^{6.888}.
+P(V) \approx 6.6507 V^{6.8884}.
 \end{equation}
 
 Сравним полученные модели (\ref{eq:eq3}) и (\ref{eq:eq4}):
-\[
-\dfrac{\chi _2^2}{\chi _1^2} \approx 40\%.
-\]
-
-Найденные зависимости изображены на рисунке \ref{fig:fig-2}:
+$ F := \chi _1^2 / \chi _2^2 \approx 2.4927.$ 
+Для первой модели имеется $n=6$ измерений и $p_1 = 1$ параметр, а значит, есть $n-p_1 = 5$ степеней свободы; аналогично во второй второй модели $n=6$, $p_2 = 2$, поэтому имеем $n-p_2 = 4$ степенией свободы. Следовательно, критическое значание для величины $F$ равно $F_{\text{крит.}} = 6.256$ (табличное значение). Так как $F < F_{\text{крит.}}$, модель $P = aV^b$ лучше описывает изучаемую зависимость, что видно из рисунка \ref{fig:fig-2}:
 
 \begin{figure}[h]
 %\vspace{5pt}
@@ -157,9 +154,9 @@ P(V) \approx 6.651 V^{6.888}.
 %\vspace{5pt}
 \end{figure}
 
-\Task{3} Изучается распределение температуры $u=u(x, t)$ в тонком бесконечном металлическом стержне, боковая поверхность которого теплоизолирована. Внутри стержня нет источника тепла. Коэффициент температуропроводности стержня $\alpha^2 = \frac{1}{20}$. Начальное распределение температуры в стержне имеет вид
+\Task{3} Изучается распределение температуры $u=u(x, t)$ в тонком бесконечном металлическом стержне, боковая поверхность которого теплоизолирована. Внутри стержня нет источника тепла. Коэффициент температуропроводности стержня $\alpha = \frac{1}{20}$. Начальное распределение температуры в стержне имеет вид
 \[
-\varphi (x)=(1-x)(\theta (x)- \theta (x-1)),
+\varphi (x)=(1-x)\big(\theta (x)- \theta (x-1)\big),
 \]
 где 
 \[
@@ -188,8 +185,8 @@ u(x, 0) = \varphi (x).
 
 \end{cases}
 \end{equation}
-(Первое уравнение системы, очевидно, является уравнением теплопроводности стержня.)\par
-Обозначим соответственно через $U = U_y (t) := \Fourier{u}(y, t)$ и $\Phi (y) := \Fourier{\varphi}(y)$ преобразования Фурье по первому аргументу функций $u$ и $\varphi$. С учётом того, что для всяких чисел $k \in \N$ и $\mu, \nu \in \Cpx$ и любых абсолютно интегрируемых на $\R$ функций $f, g$ 
+
+Обозначим соответственно через $U = U_y (t) := \Fourier{u}(y, t)$ и $\Phi (y) := \Fourier{\varphi}(y)$ преобразования Фурье по переменной $x$ от функций $u$ и $\varphi$. С учётом того, что для всяких чисел $k \in \N$ и $\mu, \nu \in \Cpx$ и любых абсолютно интегрируемых на $\R$ функций $f, g$ 
 \[
 \begin{split}
 & \BigFourier{ \dfrac{\partial u}{\partial t} }(y, t) = \dfrac{\partial}{\partial t} \Fourier{u}(y, t) = \dfrac{\d U}{\d t} = \dot{U},\\
@@ -212,55 +209,39 @@ U(0) = \Phi (y).
 \displaystyle
 u(x, t) & = \Fourier*{U_y} = \Fourier*{\Phi (y) \e ^{-\alpha ^2 y^2 t}} =\\
 & = \Fourier*{\Phi} * \Fourier*{\e ^{-\alpha ^2 y^2 t}} =\\
-& = \varphi (s) * \dfrac{\exp \bigg\{ -\dfrac{s^2}{4\alpha ^2 t} \bigg\}}{\sqrt{2t} \alpha} =\\
-& = \dfrac{1}{\sqrt{2 \pi}} \int \limits _{-\infty}^\infty \varphi (s) \dfrac{\exp \bigg\{ -\dfrac{(x-s)^2}{4\alpha ^2 t} \bigg\}}{\sqrt{2t} \alpha} \d s,
+& = \varphi (s) * \dfrac{\exp \big\{ -\frac{s^2}{4\alpha ^2 t} \big\}}{\sqrt{2t} \alpha} =\\
+& = \dfrac{1}{\sqrt{2 \pi}} \int \limits _{-\infty}^\infty \varphi (s) \dfrac{\exp \big\{ -\frac{(x-s)^2}{4\alpha ^2 t} \big\}}{\sqrt{2t} \alpha} \d s,
 \end{split}
 \]
 где интеграл понимается в смысле главного значения. В выкладке использовалось то, что
 \[
 \begin{split}
 & \Fourier*{f \cdot g} = \Fourier*{f} * \Fourier*{g},\\
-& \bigFourier*{\e ^{-\nu ^2 y^2}} = \dfrac{\e ^ {-\frac{x^2}{4\nu ^2}}}{\sqrt{2} \nu}.\\
+& \bigFourier*{\e ^{-\nu ^2 y^2}} = \dfrac{\e ^ {-\frac{x^2}{4\nu ^2}}}{\sqrt{2} \nu}\ \forall \nu \in \Cpx \backslash \{ 0 \}.\\
 \end{split}
 \]
 
-Вычислим последний интеграл. Для начала заметим, что
+Остаётся заметить, что
 \[
-\varphi (s)=(1-s)(\theta (s)- \theta (s-1)) =
+\varphi (s)=(1-s)\big(\theta (s)- \theta (s-1)\big) =
 \begin{cases}
-1-s, 0 \le s \le 1,\\
-0, s \in \R \backslash [0, 1].
+1-s\ \text{при}\ 0 \le s \le 1,\\
+0\ \text{иначе}.
 \end{cases}
 \]
 В таком случае
 \begin{align*}
-\dfrac{1}{\sqrt{2 \pi}} & \int \limits _{-\infty}^\infty \varphi (s) \dfrac{\exp \bigg\{ -\dfrac{(x-s)^2}{4\alpha ^2 t} \bigg\}}{\sqrt{2t} \alpha} \d s =
-\dfrac{1}{2\alpha \sqrt{\pi t}} \int \limits _0^1 (1-s) \exp \bigg\{ -\dfrac{(x-s)^2}{4\alpha ^2 t} \bigg\} \d s =\\
-& = \dfrac{1}{2\alpha \sqrt{\pi t}} \int \limits _0^1 \big( (1-x)+(x-s) \big) \exp \bigg\{ -\dfrac{(x-s)^2}{4\alpha ^2 t} \bigg\} \d s =\\
-& = \dfrac{1-x}{2\alpha \sqrt{\pi t}} \int \limits _0^1 \exp \bigg\{ -\dfrac{(x-s)^2}{4\alpha ^2 t} \bigg\} \d s \ + \dfrac{1}{2\alpha \sqrt{\pi t}} \int \limits _0^1 (x-s) \exp \bigg\{ -\dfrac{(x-s)^2}{4\alpha ^2 t} \bigg\} \d s =\\
-& = \dfrac{1-x}{2} \bigg[ \erf \bigg( \dfrac{x}{2\alpha \sqrt{t}} \bigg) - \erf \bigg( \dfrac{x-1}{2\alpha \sqrt{t}} \bigg) \bigg] -\\
-& - \alpha \sqrt{ \dfrac{t}{\pi} } \bigg[ \exp \bigg( -\dfrac{x^2}{4\alpha ^2 t} \bigg) - \exp \bigg( -\dfrac{(x-1)^2}{4\alpha ^2 t} \bigg)  \bigg].
+u(x, t) & = \dfrac{1}{\sqrt{2 \pi}} \int \limits _{-\infty}^\infty \varphi (s) \dfrac{\exp \big\{ -\frac{(x-s)^2}{4\alpha ^2 t} \big\}}{\sqrt{2t} \alpha} \d s = \\
+& = \dfrac{1}{2\alpha \sqrt{\pi t}} \int \limits _0^1 (1-s) \e ^ { -\frac{(x-s)^2}{4\alpha ^2 t} } \d s.
 \end{align*}
 
-
-Итак, окончательно
-\begin{align*}
-u(x, t) = \dfrac{1-x}{2} \bigg[ \erf \bigg( \dfrac{x}{2\alpha \sqrt{t}} \bigg) & - \erf \bigg( \dfrac{x-1}{2\alpha \sqrt{t}} \bigg) \bigg] -\\
-& - \alpha \sqrt{ \dfrac{t}{\pi} } \bigg[ \exp \bigg( -\dfrac{x^2}{4\alpha ^2 t} \bigg) - \exp \bigg( -\dfrac{(x-1)^2}{4\alpha ^2 t} \bigg)  \bigg].
-\end{align*}
-
-Как видно, полученная функция не определена при $t=0$. Однако изначально она удовлетворяла тождеству $u(x, t) = \Fourier*{\Phi (y) \e ^{-\alpha ^2 y^2 t}}$, поэтому $u(x, 0) = \Fourier*{\Phi (y)} = \varphi (x)$. Вспоминая, что $\alpha ^2 = \frac{1}{20}$, запишем ответ:
+Как видно, полученная функция не определена при $t=0$. Поскольку преобразование Фурье непрерывное, $t=0$ --- это точка устранимого разрыва; значит, $u(x, 0) = \varphi (x)$. Вспоминая, что $\alpha = \frac{1}{20}$, запишем ответ:
 \[
 u(x, t) =
-\begin{cases}
+\begin{cases} \displaystyle
+\dfrac{10}{\sqrt{\pi t}} \int \limits _0^1 (1-s) \e ^ { -100\frac{(x-s)^2}{t} } \d s\ \text{при}\ t > 0,\vspace{6pt}\\
 
-\begin{split}
-\dfrac{1-x}{2} \bigg[ \erf & \bigg( \sqrt{ \dfrac{5}{t} } x \bigg) - \erf \bigg( \sqrt{ \dfrac{5}{t} }(x-1) \bigg) \bigg] -\\
-& - \sqrt{ \dfrac{t}{20\pi} } \bigg[ \exp \bigg( -\dfrac{5x^2}{t} \bigg) - \exp \bigg( -\dfrac{5(x-1)^2}{t} \bigg)  \bigg]\ \text{при}\ t > 0,
-\end{split}
-\\
 \varphi (x)\ \text{при}\ t = 0.
-
 \end{cases}
 \]
 

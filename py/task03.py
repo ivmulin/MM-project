@@ -2,7 +2,11 @@ from manim import *
 from scipy.special import erf
 
 
-LINE = r"u(x, t) &= \dfrac{1-x}{2} \bigg[ \operatorname{erf} \bigg( \sqrt{ \dfrac{5}{t} } x \bigg) - \operatorname{erf} \bigg( \sqrt{ \dfrac{5}{t} } (x-1) \bigg) \bigg] - \\ &- \sqrt{ \dfrac{t}{20\pi} } \bigg[ \exp \bigg( -\dfrac{5x^2}{t} \bigg) - \exp \bigg( -\dfrac{5(x-1)^2}{t} \bigg)  \bigg]"
+LINE = r"""u(x, t) =
+\begin{cases} \displaystyle
+\dfrac{10}{\sqrt{\pi t}} \int \limits _0^1 (1-s) \mathrm{e} ^ { -100\frac{(x-s)^2}{t} } \mathrm{d} s,\ t > 0,\\
+\varphi (x),\ t = 0.
+\end{cases}"""
 
 
 def step(x):
@@ -87,4 +91,4 @@ class plane_animation(Scene):
         self.add(function_label, label, nl)
         self.add(time_stamp, plot)
         self.wait(1)
-        self.play(T.animate.set_value(END_OF_TIME), run_time=5)
+        self.play(T.animate.set_value(END_OF_TIME), run_time=END_OF_TIME, rate_func=rate_functions.linear)
